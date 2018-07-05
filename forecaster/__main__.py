@@ -93,14 +93,14 @@ for cryptocurrency in cryptocurrencies:
                 train_labels, test_labels = lagged_labels[:697], lagged_labels[697:]
 
                 # Training
-                # aode.fit(train_data, train_labels, online=False)
-                svclassifier.fit(train_data, train_labels)
+                aode.fit(train_data, train_labels, online=False)
+                #svclassifier.fit(train_data, train_labels)
 
                 # Test
-                # pred_labels = []
-                # for element in test_data:
-                #     pred_labels.append(aode.predict(element, estimation=estimation))
-                pred_labels = svclassifier.predict(test_data)  
+                pred_labels = []
+                for element in test_data:
+                    pred_labels.append(aode.predict(element, estimation=estimation))
+                #pred_labels = svclassifier.predict(test_data)  
 
                 # print('\n\n\n\n\n\n')
                 # print(set(train_labels), set(pred_labels))
