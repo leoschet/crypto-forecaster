@@ -73,12 +73,12 @@ for cryptocurrency in cryptocurrencies:
     features_headers = list(set(df.columns.values).symmetric_difference(label_headers))
 
     # Standardize features series
-    # df[features_headers] = df[features_headers].apply(stats.zscore)
-    df = df.apply(stats.zscore) # Useful for regressor?
+    df[features_headers] = df[features_headers].apply(stats.zscore)
+    # df = df.apply(stats.zscore) # Useful for regressor?
     # df = df.diff() # Useful for regressor?
 
     # Shift label headers so features can predict future values
-    df[label_headers] = df[label_headers].diff() # Useful for regressor?
+    # df[label_headers] = df[label_headers].diff() # Useful for regressor?
     df[label_headers] = df[label_headers].shift(-1)
 
     # Drop rows with nan values
@@ -127,8 +127,8 @@ for cryptocurrency in cryptocurrencies:
                 # aode.fit(train_data, train_labels, online=False)
                 # svclassifier.fit(train_data, train_labels)
                 # mlp.fit(train_data, train_labels)
-                # rfc.fit(train_data, train_labels)
-                svregressor.fit(train_data, train_labels)
+                rfc.fit(train_data, train_labels)
+                # svregressor.fit(train_data, train_labels)
 
                 # predict
                 pred_labels = []
@@ -136,11 +136,12 @@ for cryptocurrency in cryptocurrencies:
                 #     pred_labels.append(aode.predict(element, estimation=estimation))
                 # pred_labels = svclassifier.predict(test_data)
                 # pred_labels = mlp.predict(test_data)
-                # pred_labels = rfc.predict(test_data)
-                pred_labels = svregressor.predict(test_data)
+                pred_labels = rfc.predict(test_data)
+                # pred_labels = svregressor.predict(test_data)
 
-                plot(list(test_labels), list(pred_labels))
-                continue
+                # Regressor execution:
+                # plot(list(test_labels), list(pred_labels))
+                # continue
 
                 # Calculte prediction metrics
                 precision, recall, f1, _ = precision_recall_fscore_support(

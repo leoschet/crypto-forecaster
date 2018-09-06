@@ -60,7 +60,7 @@ def get_data(cryptocurrency):
         full_df['today_' + label] = full_df[label].copy()
 
     # Binerize labels (price and transactions)
-    # full_df = _categorize_labels(full_df)
+    full_df = _categorize_labels(full_df)
 
     # Set dates to index
     full_df.index = pd.DatetimeIndex(full_df['date'])
