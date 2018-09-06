@@ -12,9 +12,9 @@ df = retriever.get_data('bitcoin')
 start_date = pd.to_datetime('2013-12-01')
 end_date = pd.to_datetime('2016-02-01')
 
-mask = (df['date'] > start_date) & (df['date'] <= end_date)
+mask = (df.index.values > start_date) & (df.index.values <= end_date)
 
-date = df['date']
+date = df.index.values
 
 # Price
 price = df['price']
@@ -32,7 +32,7 @@ df['price'] = stand_price
 restricted_df = df.dropna()
 
 timeseries.metrics(restricted_df['price'])
-timeseries.plot(restricted_df['date'], restricted_df['price'], 'Standardized price')
+timeseries.plot(restricted_df.index.values, restricted_df['price'], 'Standardized price')
 
 # # # Standardized price zscore
 # # stand_price_zscore = timeseries.standardize_laggedly(price_zscore)

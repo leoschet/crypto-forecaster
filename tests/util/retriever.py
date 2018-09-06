@@ -17,7 +17,7 @@ def categorize_labels(df, labels=['price', 'transactions']):
     return df
 
 def get_data(cryptocurrency):
-    crypto_path = os.path.join(settings.RESOURSES_DIR, cryptocurrency)
+    crypto_path = os.path.join(settings.RESOURCES_DIR, cryptocurrency)
 
     # Currency related data frames
     price_df = _read_csv(os.path.join(crypto_path, 'price.csv'))

@@ -13,8 +13,8 @@ import os
 # Project useful directories
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 
-# Resourses
-RESOURSES_DIR = os.path.join(ROOT, 'res')
+# Resources
+RESOURCES_DIR = os.path.join(ROOT, 'res')
 ########## END PATH CONFIGURATION
 
 ########## DEBUG CONFIGURATION
