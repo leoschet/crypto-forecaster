@@ -84,3 +84,19 @@ def first_differentiate(timeseries, periods=1, use_log=False):
     
     # Return first differentiated series
     return stationary_ts.diff(periods=periods)
+
+def window_stack(array, window, step=1):
+    # array[initial_index:final_index:step]
+    # each iteration of the for adds the ith element of every window
+    # It is completed concurrently
+
+    if array.ndim == 1:
+        return np.vstack(
+            array[i:(1 + i - window or None):step] 
+            for i in range(0, window)
+        )
+    else:
+        return np.hstack(
+            array[i:(1 + i - window or None):step] 
+            for i in range(0, window)
+        )

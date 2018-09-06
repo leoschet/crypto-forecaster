@@ -7,15 +7,8 @@ import numpy as np
 from . import settings
 
 
-def categorize_labels(df, labels=['price', 'transactions']):
-    df[labels] = df[labels].diff().apply(np.sign)
-    df = df.dropna()
-    df[labels] = df[labels].astype(str)
-
-    return df
-
 def get_data(cryptocurrency):
-    crypto_path = os.path.join(settings.RESOURSES_DIR, cryptocurrency)
+    crypto_path = os.path.join(settings.RESOURCES_DIR, cryptocurrency)
 
     # Currency related data frames
     price_df = _read_csv(os.path.join(crypto_path, 'price.csv'))
@@ -62,6 +55,13 @@ def get_data(cryptocurrency):
     # Sort by date
     full_df = full_df.sort_values(by='date')
 
+    # Set today's label_headers' values as tomorrow's features
+    for label in ['price', 'transactions']:
+        full_df['today_' + label] = full_df[label].copy()
+
+    # Binerize labels (price and transactions)
+    # full_df = _categorize_labels(full_df)
+
     # Set dates to index
     full_df.index = pd.DatetimeIndex(full_df['date'])
     full_df = full_df.drop(columns='date')
@@ -90,6 +90,14 @@ def _floaterize_prices(price_df):
     price_df['price'] = price_df['price'].apply(remove_comma).astype(float)
 
     return price_df
+
+def _categorize_labels(df):
+    labels = ['price', 'transactions']
+
+    df[labels] = df[labels].diff().apply(np.sign).astype(str)
+    df = df.dropna()
+
+    return df
 
 def _transform_vader_series(df, header_suffix):
     """
