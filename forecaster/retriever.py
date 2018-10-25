@@ -94,7 +94,7 @@ def _floaterize_prices(price_df):
 def _categorize_labels(df):
     labels = ['price', 'transactions']
 
-    df[labels] = df[labels].diff().apply(np.sign).astype(str)
+    df[labels] = df[labels].diff().apply(np.sign).astype(str).shift(-1)
     df = df.dropna()
 
     return df
