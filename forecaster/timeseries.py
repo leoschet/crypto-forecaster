@@ -85,7 +85,12 @@ def first_differentiate(timeseries, periods=1, use_log=False):
     # Return first differentiated series
     return stationary_ts.diff(periods=periods)
 
-def window_stack(array, window, step=1):
+def window_stack(array, window, step=1, spatial=False):
+    """
+    Method for creating timeseries windows.
+
+    spatial is only applicable when array.ndim > 1
+    """
     # array[initial_index:final_index:step]
     # each iteration of the for adds the ith element of every window
     # It is completed concurrently
@@ -96,6 +101,13 @@ def window_stack(array, window, step=1):
             for i in range(0, window)
         )
     else:
+        if spatial:
+            return np.array([
+                array[i:(window + i):step]
+                for i in range(0, len(array) - window + 1)
+            ])
+
+        # TODO: Fix this
         return np.hstack(
             array[i:(1 + i - window or None):step] 
             for i in range(0, window)
