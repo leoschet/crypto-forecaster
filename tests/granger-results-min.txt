@@ -1,0 +1,227 @@
+time lag & transactions & views\\
+\textbf{01} & \num{8.177e-02} & \num{6.140e-02}\\
+\textbf{02} & \num{3.335e-01} & \textbf{\num{4.356e-02}}\\
+\textbf{03} & \num{5.627e-01} & \textbf{\num{3.330e-03}}\\
+\textbf{04} & \num{7.033e-01} & \textbf{\num{7.034e-04}}\\
+\textbf{05} & \num{7.476e-01} & \textbf{\num{1.823e-03}}\\
+\textbf{06} & \num{9.110e-01} & \textbf{\num{1.419e-02}}\\
+\textbf{07} & \num{9.326e-01} & \textbf{\num{2.614e-02}}\\
+\textbf{08} & \num{9.582e-01} & \textbf{\num{1.728e-02}}\\
+\textbf{09} & \num{9.724e-01} & \textbf{\num{1.836e-02}}\\
+\textbf{10} & \num{9.914e-01} & \textbf{\num{2.217e-02}}\\
+\textbf{11} & \num{9.883e-01} & \num{7.140e-02}\\
+\textbf{12} & \num{9.954e-01} & \num{8.988e-02}\\
+\textbf{13} & \num{9.984e-01} & \num{7.340e-02}\\
+\textbf{14} & \num{9.984e-01} & \textbf{\num{5.434e-02}}\\
+\textbf{15} & \num{9.985e-01} & \num{7.081e-02}\\
+\textbf{16} & \num{9.990e-01} & \num{1.435e-01}\\
+\textbf{17} & \num{9.968e-01} & \num{1.641e-01}\\
+\textbf{18} & \num{9.986e-01} & \num{2.400e-01}\\
+\textbf{19} & \num{9.962e-01} & \num{1.518e-01}\\
+\textbf{20} & \num{9.926e-01} & \num{1.896e-01}\\
+\textbf{21} & \num{9.838e-01} & \num{1.906e-01}\\
+\textbf{22} & \num{9.896e-01} & \num{2.225e-01}\\
+\textbf{23} & \num{9.905e-01} & \num{3.147e-01}\\
+\textbf{24} & \num{9.930e-01} & \num{3.163e-01}\\
+\textbf{25} & \num{9.973e-01} & \num{3.126e-01}\\
+\textbf{26} & \num{9.965e-01} & \num{3.448e-01}\\
+\textbf{27} & \num{9.981e-01} & \num{3.265e-01}\\
+\textbf{28} & \num{9.989e-01} & \num{2.826e-01}\\
+\textbf{29} & \num{9.992e-01} & \num{3.329e-01}\\
+\textbf{30} & \num{9.992e-01} & \num{3.962e-01}\\
+\textbf{31} & \num{9.978e-01} & \num{4.784e-01}\\
+\textbf{32} & \num{9.983e-01} & \num{4.666e-01}\\
+\textbf{33} & \num{9.988e-01} & \num{5.931e-01}\\
+\textbf{34} & \num{9.990e-01} & \num{5.993e-01}\\
+\textbf{35} & \num{9.992e-01} & \num{6.510e-01}\\
+\textbf{36} & \num{9.989e-01} & \num{7.051e-01}\\
+\textbf{37} & \num{9.984e-01} & \num{7.680e-01}\\
+\textbf{38} & \num{9.988e-01} & \num{8.168e-01}\\
+\textbf{39} & \num{9.989e-01} & \num{8.138e-01}\\
+\textbf{40} & \num{9.991e-01} & \num{8.018e-01}\\
+\textbf{41} & \num{9.986e-01} & \num{8.493e-01}\\
+\textbf{42} & \num{9.992e-01} & \num{9.352e-01}\\
+\textbf{43} & \num{9.992e-01} & \num{9.388e-01}\\
+\textbf{44} & \num{9.990e-01} & \num{9.578e-01}\\
+\textbf{45} & \num{9.990e-01} & \num{9.617e-01}\\
+\textbf{46} & \num{9.966e-01} & \num{9.684e-01}\\
+\textbf{47} & \num{9.973e-01} & \num{9.443e-01}\\
+\textbf{48} & \num{9.983e-01} & \num{9.374e-01}\\
+\textbf{49} & \num{9.988e-01} & \num{9.606e-01}\\
+\textbf{50} & \num{9.901e-01} & \num{9.516e-01}\\
+\textbf{51} & \num{9.922e-01} & \num{9.632e-01}\\
+\textbf{52} & \num{9.943e-01} & \num{9.827e-01}\\
+\textbf{53} & \num{9.953e-01} & \num{9.802e-01}\\
+\textbf{54} & \num{9.961e-01} & \num{9.786e-01}\\
+\textbf{55} & \num{9.972e-01} & \num{9.795e-01}\\
+
+time lag        &   very_negative_reply                     &   very_negative_topic         &   negative_reply              &   negative_topic\\
+\textbf{01}     &   \textbf{\num{2.204e-02}}                &   \num{5.632e-01}             &   \num{1.461e-01}             &   \num{3.238e-01}\\
+\textbf{02}     &   \num{9.619e-02}                         &   \num{4.791e-01}             &   \textbf{\num{2.606e-02}}             &   \num{1.792e-01}\\
+\textbf{03}     &   \textbf{\num{3.288e-03}}                &   \num{1.761e-01}             &   \textbf{\num{6.660e-04}}    &   \num{3.053e-01}\\
+\textbf{04}     &   \textbf{\num{4.875e-03}}                &   \num{1.725e-01}             &   \textbf{\num{1.225e-03}}    &   \textbf{\num{5.279e-02}}\\
+\textbf{05}     &   \textbf{\num{1.159e-02}}                &   \num{2.578e-01}             &   \textbf{\num{3.275e-03}}    &   \num{6.085e-02}\\
+\textbf{06}     &   \textbf{\num{9.932e-03}}                &   \num{1.607e-01}             &   \textbf{\num{1.240e-02}}             &   \num{1.809e-01}\\
+\textbf{07}     &   \textbf{\num{2.009e-02}}                &   \num{2.005e-01}             &   \textbf{\num{2.510e-02}}             &   \num{3.050e-01}\\
+\textbf{08}     &   \textbf{\num{2.177e-02}}                &   \num{2.395e-01}             &   \textbf{\num{2.314e-02}}             &   \num{3.994e-01}\\
+\textbf{09}     &   \textbf{\num{3.539e-02}}                &   \num{1.140e-01}             &   \textbf{\num{1.994e-02}}             &   \num{4.254e-01}\\
+\textbf{10}     &   \textbf{\num{1.507e-02}}                &   \num{6.278e-02}    &   \textbf{\num{2.623e-02}}             &   \num{3.538e-01}\\
+\textbf{11}     &   \textbf{\num{1.402e-02}}                &   \num{9.129e-02}    &   \textbf{\num{2.468e-02}}             &   \num{4.154e-01}\\
+\textbf{12}     &   \textbf{\num{2.332e-02}}                &   \num{1.410e-01}             &   \textbf{\num{1.595e-02}}             &   \num{4.685e-01}\\
+\textbf{13}     &   \textbf{\num{2.111e-02}}                &   \num{1.825e-01}             &   \textbf{\num{1.217e-02}}             &   \num{5.357e-01}\\
+\textbf{14}     &   \textbf{\num{1.777e-02}}                &   \num{2.729e-01}             &   \textbf{\num{8.167e-03}}    &   \num{6.070e-01}\\
+\textbf{15}     &   \textbf{\num{2.184e-02}}                &   \num{2.591e-01}             &   \textbf{\num{1.298e-02}}             &   \num{5.519e-01}\\
+\textbf{16}     &   \textbf{\num{4.243e-02}}                &   \num{2.996e-01}             &   \textbf{\num{2.611e-02}}             &   \num{5.484e-01}\\
+\textbf{17}     &   \textbf{\num{3.115e-02}}                &   \num{4.409e-01}             &   \textbf{\num{3.433e-02}}             &   \num{6.502e-01}\\
+\textbf{18}     &   \textbf{\num{5.803e-02}}    &   \num{2.536e-01}             &   \num{9.586e-02}    &   \num{6.285e-01}\\
+\textbf{19}     &   \num{6.843e-02}    &   \num{1.121e-01}             &   \num{6.319e-02}    &   \num{4.981e-01}\\
+\textbf{20}     &   \num{1.015e-01}             &   \num{1.148e-01}             &   \textbf{\num{4.981e-02}}             &   \num{5.207e-01}\\
+\textbf{21}     &   \num{1.207e-01}             &   \num{1.648e-01}             &   \num{6.093e-02}    &   \num{4.338e-01}\\
+\textbf{22}     &   \num{1.758e-01}             &   \num{1.719e-01}             &   \textbf{\num{5.769e-02}}    &   \num{4.880e-01}\\
+\textbf{23}     &   \num{1.976e-01}             &   \num{2.056e-01}             &   \textbf{\num{5.393e-02}}    &   \num{4.649e-01}\\
+\textbf{24}     &   \num{2.117e-01}             &   \num{3.161e-01}             &   \num{6.033e-02}    &   \num{5.474e-01}\\
+\textbf{25}     &   \num{2.246e-01}             &   \num{4.459e-01}             &   \textbf{\num{5.427e-02}}    &   \num{6.090e-01}\\
+\textbf{26}     &   \num{1.287e-01}             &   \num{4.045e-01}             &   \textbf{\num{3.299e-02}}             &   \num{4.899e-01}\\
+\textbf{27}     &   \num{7.990e-02}    &   \num{2.441e-01}             &   \textbf{\num{2.210e-02}}             &   \num{5.866e-01}\\
+\textbf{28}     &   \textbf{\num{5.772e-02}}    &   \num{1.400e-01}             &   \textbf{\num{1.316e-02}}             &   \num{6.856e-01}\\
+\textbf{29}     &   \num{6.236e-02}    &   \num{1.547e-01}             &   \textbf{\num{1.675e-02}}             &   \num{5.978e-01}\\
+\textbf{30}     &   \textbf{\num{5.428e-02}}    &   \textbf{\num{4.552e-02}}             &   \textbf{\num{3.154e-02}}             &   \num{3.661e-01}\\
+\textbf{31}     &   \textbf{\num{4.863e-02}}             &   \num{9.078e-02}    &   \textbf{\num{3.865e-02}}             &   \num{3.232e-01}\\
+\textbf{32}     &   \num{6.255e-02}    &   \num{1.192e-01}             &   \textbf{\num{4.289e-02}}             &   \num{4.929e-01}\\
+\textbf{33}     &   \num{7.179e-02}    &   \num{2.157e-01}             &   \textbf{\num{4.617e-02}}             &   \num{3.812e-01}\\
+\textbf{34}     &   \num{7.716e-02}    &   \num{1.462e-01}             &   \textbf{\num{3.277e-02}}             &   \num{4.333e-01}\\
+\textbf{35}     &   \textbf{\num{2.665e-02}}             &   \num{1.545e-01}             &   \textbf{\num{6.552e-03}}    &   \num{3.358e-01}\\
+\textbf{36}     &   \textbf{\num{3.178e-02}}             &   \num{1.550e-01}             &   \textbf{\num{6.512e-03}}    &   \num{2.909e-01}\\
+\textbf{37}     &   \textbf{\num{2.873e-02}}             &   \textbf{\num{3.314e-02}}             &   \textbf{\num{4.407e-03}}    &   \num{4.122e-01}\\
+\textbf{38}     &   \textbf{\num{2.637e-02}}             &   \textbf{\num{3.072e-02}}             &   \textbf{\num{3.622e-03}}    &   \num{5.424e-01}\\
+\textbf{39}     &   \textbf{\num{2.645e-02}}             &   \textbf{\num{3.798e-02}}             &   \textbf{\num{3.843e-03}}    &   \num{5.788e-01}\\
+\textbf{40}     &   \textbf{\num{1.060e-02}}             &   \textbf{\num{2.718e-02}}             &   \textbf{\num{1.321e-03}}    &   \num{6.335e-01}\\
+\textbf{41}     &   \textbf{\num{1.214e-02}}             &   \textbf{\num{3.587e-02}}             &   \textbf{\num{1.430e-03}}    &   \num{6.788e-01}\\
+\textbf{42}     &   \textbf{\num{2.570e-02}}             &   \textbf{\num{2.749e-02}}             &   \textbf{\num{4.124e-03}}    &   \num{8.253e-01}\\
+\textbf{43}     &   \textbf{\num{1.991e-02}}             &   \textbf{\num{2.254e-02}}             &   \textbf{\num{4.802e-03}}    &   \num{6.679e-01}\\
+\textbf{44}     &   \textbf{\num{1.856e-02}}             &   \textbf{\num{2.275e-02}}             &   \textbf{\num{6.261e-03}}    &   \num{7.001e-01}\\
+\textbf{45}     &   \textbf{\num{7.134e-03}}    &   \textbf{\num{8.468e-03}}    &   \textbf{\num{4.337e-03}}    &   \num{6.406e-01}\\
+\textbf{46}     &   \textbf{\num{6.884e-03}}    &   \textbf{\num{5.646e-03}}    &   \textbf{\num{3.144e-03}}    &   \num{6.143e-01}\\
+\textbf{47}     &   \textbf{\num{7.092e-03}}    &   \textbf{\num{6.297e-03}}    &   \textbf{\num{1.823e-03}}    &   \num{6.299e-01}\\
+\textbf{48}     &   \textbf{\num{7.760e-03}}    &   \textbf{\num{3.823e-03}}    &   \textbf{\num{2.842e-03}}    &   \num{6.118e-01}\\
+\textbf{49}     &   \textbf{\num{9.771e-03}}    &   \textbf{\num{8.561e-03}}    &   \textbf{\num{4.352e-03}}    &   \num{6.353e-01}\\
+\textbf{50}     &   \textbf{\num{7.627e-03}}    &   \textbf{\num{5.809e-03}}    &   \textbf{\num{6.677e-03}}    &   \num{6.638e-01}\\
+\textbf{51}     &   \textbf{\num{5.842e-03}}    &   \textbf{\num{3.213e-03}}    &   \textbf{\num{7.479e-03}}    &   \num{6.434e-01}\\
+\textbf{52}     &   \textbf{\num{8.716e-03}}    &   \textbf{\num{4.645e-03}}    &   \textbf{\num{1.335e-02}}             &   \num{5.526e-01}\\
+\textbf{53}     &   \textbf{\num{6.814e-03}}    &   \textbf{\num{4.242e-03}}    &   \textbf{\num{1.498e-02}}             &   \num{5.373e-01}\\
+\textbf{54}     &   \textbf{\num{9.025e-03}}    &   \textbf{\num{5.391e-03}}    &   \textbf{\num{1.985e-02}}             &   \num{5.506e-01}\\
+\textbf{55}     &   \textbf{\num{8.871e-03}}    &   \textbf{\num{6.401e-03}}    &   \textbf{\num{2.700e-02}}             &   \num{5.603e-01}\\
+
+time lag        & neutral_reply             & neutral_topic             & total_reply               & total_topic\\
+\textbf{01}     & \num{6.112e-02}  & \num{5.727e-01}           & \textbf{\num{3.729e-02}}           & \num{8.422e-01}\\
+\textbf{02}     & \num{2.616e-01}           & \textbf{\num{3.163e-03}}  & \num{9.704e-02}  & \textbf{\num{1.506e-02}}\\
+\textbf{03}     & \textbf{\num{1.042e-02}}           & \textbf{\num{4.304e-03}}  & \textbf{\num{1.496e-04}}  & \textbf{\num{2.666e-04}}\\
+\textbf{04}     & \textbf{\num{6.156e-03}}  & \textbf{\num{1.185e-03}}  & \textbf{\num{1.218e-04}}  & \textbf{\num{2.677e-06}}\\
+\textbf{05}     & \textbf{\num{7.948e-03}}  & \textbf{\num{7.180e-03}}  & \textbf{\num{3.018e-04}}  & \textbf{\num{5.006e-05}}\\
+\textbf{06}     & \textbf{\num{4.211e-02}}           & \textbf{\num{9.786e-03}}  & \textbf{\num{3.971e-03}}  & \textbf{\num{7.898e-04}}\\
+\textbf{07}     & \num{9.657e-02}  & \textbf{\num{6.057e-03}}  & \textbf{\num{8.313e-03}}  & \textbf{\num{6.625e-04}}\\
+\textbf{08}     & \num{9.692e-02}  & \textbf{\num{9.179e-03}}  & \textbf{\num{7.211e-03}}  & \textbf{\num{1.054e-03}}\\
+\textbf{09}     & \num{1.098e-01}           & \textbf{\num{2.336e-02}}           & \textbf{\num{1.086e-02}}           & \textbf{\num{2.420e-03}}\\
+\textbf{10}     & \num{1.309e-01}           & \textbf{\num{3.215e-02}}           & \textbf{\num{9.583e-03}}  & \textbf{\num{1.917e-03}}\\
+\textbf{11}     & \num{8.845e-02}  & \textbf{\num{5.805e-02}}  & \textbf{\num{4.891e-03}}  & \textbf{\num{2.623e-03}}\\
+\textbf{12}     & \num{1.206e-01}           & \textbf{\num{5.747e-02}}  & \textbf{\num{6.653e-03}}  & \textbf{\num{2.063e-03}}\\
+\textbf{13}     & \num{1.691e-01}           & \num{6.027e-02}  & \textbf{\num{6.462e-03}}  & \textbf{\num{4.166e-03}}\\
+\textbf{14}     & \num{1.615e-01}           & \textbf{\num{1.669e-02}}           & \textbf{\num{5.273e-03}}  & \textbf{\num{2.599e-03}}\\
+\textbf{15}     & \num{2.103e-01}           & \textbf{\num{2.142e-02}}           & \textbf{\num{8.864e-03}}  & \textbf{\num{7.365e-04}}\\
+\textbf{16}     & \num{2.820e-01}           & \textbf{\num{2.248e-02}}           & \textbf{\num{1.794e-02}}           & \textbf{\num{1.762e-03}}\\
+\textbf{17}     & \num{3.364e-01}           & \textbf{\num{2.137e-02}}           & \textbf{\num{1.963e-02}}           & \textbf{\num{3.279e-03}}\\
+\textbf{18}     & \num{4.997e-01}           & \num{1.095e-01}           & \num{7.262e-02}  & \textbf{\num{1.352e-02}}\\
+\textbf{19}     & \num{1.406e-01}           & \num{9.277e-02}  & \textbf{\num{2.245e-02}}           & \textbf{\num{2.810e-02}}\\
+\textbf{20}     & \num{2.035e-01}           & \num{1.714e-01}           & \textbf{\num{3.739e-02}}           & \textbf{\num{3.904e-02}}\\
+\textbf{21}     & \num{2.387e-01}           & \num{1.893e-01}           & \textbf{\num{2.209e-02}}           & \textbf{\num{3.974e-02}}\\
+\textbf{22}     & \num{2.341e-01}           & \num{2.121e-01}           & \textbf{\num{2.902e-02}}           & \textbf{\num{4.663e-02}}\\
+\textbf{23}     & \num{1.228e-01}           & \num{2.242e-01}           & \textbf{\num{1.490e-02}}           & \textbf{\num{2.995e-02}}\\
+\textbf{24}     & \num{1.235e-01}           & \num{2.700e-01}           & \textbf{\num{1.283e-02}}           & \textbf{\num{4.437e-02}}\\
+\textbf{25}     & \num{8.488e-02}  & \num{2.954e-01}           & \textbf{\num{8.142e-03}}  & \textbf{\num{5.647e-02}}\\
+\textbf{26}     & \textbf{\num{2.800e-02}}           & \num{3.138e-01}           & \textbf{\num{3.227e-03}}  & \num{8.013e-02}\\
+\textbf{27}     & \textbf{\num{1.555e-02}}           & \num{1.811e-01}           & \textbf{\num{1.827e-03}}  & \num{8.202e-02}\\
+\textbf{28}     & \textbf{\num{1.798e-02}}           & \num{1.541e-01}           & \textbf{\num{1.739e-03}}  & \num{1.402e-01}\\
+\textbf{29}     & \textbf{\num{2.544e-02}}           & \num{1.641e-01}           & \textbf{\num{1.968e-03}}  & \num{1.211e-01}\\
+\textbf{30}     & \textbf{\num{5.686e-02}}  & \num{1.719e-01}           & \textbf{\num{4.563e-03}}  & \num{1.167e-01}\\
+\textbf{31}     & \textbf{\num{5.678e-02}}  & \num{1.355e-01}           & \textbf{\num{6.613e-03}}  & \num{6.358e-02}\\
+\textbf{32}     & \textbf{\num{5.449e-02}}  & \num{2.182e-01}           & \textbf{\num{6.626e-03}}  & \num{6.224e-02}\\
+\textbf{33}     & \num{6.453e-02}  & \num{2.393e-01}           & \textbf{\num{5.266e-03}}  & \textbf{\num{5.540e-02}}\\
+\textbf{34}     & \textbf{\num{3.777e-02}}           & \num{1.233e-01}           & \textbf{\num{2.927e-03}}  & \textbf{\num{3.914e-03}}\\
+\textbf{35}     & \textbf{\num{1.377e-02}}           & \num{9.028e-02}  & \textbf{\num{4.981e-04}}  & \textbf{\num{2.889e-04}}\\
+\textbf{36}     & \textbf{\num{1.575e-02}}           & \num{6.016e-02}  & \textbf{\num{6.796e-04}}  & \textbf{\num{3.944e-04}}\\
+\textbf{37}     & \textbf{\num{1.069e-02}}           & \textbf{\num{3.384e-02}}           & \textbf{\num{5.577e-04}}  & \textbf{\num{1.510e-04}}\\
+\textbf{38}     & \textbf{\num{6.845e-03}}  & \num{1.053e-01}           & \textbf{\num{5.235e-04}}  & \textbf{\num{8.143e-05}}\\
+\textbf{39}     & \textbf{\num{3.761e-03}}  & \textbf{\num{2.821e-02}}           & \textbf{\num{4.123e-04}}  & \textbf{\num{7.421e-05}}\\
+\textbf{40}     & \textbf{\num{7.112e-04}}  & \textbf{\num{8.240e-03}}  & \textbf{\num{1.590e-04}}  & \textbf{\num{7.953e-06}}\\
+\textbf{41}     & \textbf{\num{7.054e-04}}  & \textbf{\num{1.396e-02}}           & \textbf{\num{1.790e-04}}  & \textbf{\num{1.080e-05}}\\
+\textbf{42}     & \textbf{\num{2.817e-03}}  & \textbf{\num{1.702e-02}}           & \textbf{\num{5.974e-04}}  & \textbf{\num{1.026e-05}}\\
+\textbf{43}     & \textbf{\num{1.297e-03}}  & \textbf{\num{2.301e-02}}           & \textbf{\num{1.532e-04}}  & \textbf{\num{8.874e-06}}\\
+\textbf{44}     & \textbf{\num{1.905e-03}}  & \textbf{\num{2.391e-02}}           & \textbf{\num{2.159e-04}}  & \textbf{\num{1.648e-05}}\\
+\textbf{45}     & \textbf{\num{1.563e-03}}  & \textbf{\num{2.621e-02}}           & \textbf{\num{1.997e-04}}  & \textbf{\num{5.368e-05}}\\
+\textbf{46}     & \textbf{\num{8.512e-04}}  & \textbf{\num{1.581e-02}}           & \textbf{\num{1.088e-04}}  & \textbf{\num{1.199e-05}}\\
+\textbf{47}     & \textbf{\num{5.830e-04}}  & \textbf{\num{1.747e-02}}           & \textbf{\num{9.634e-05}}  & \textbf{\num{7.838e-06}}\\
+\textbf{48}     & \textbf{\num{9.215e-04}}  & \textbf{\num{2.392e-02}}           & \textbf{\num{1.435e-04}}  & \textbf{\num{1.229e-05}}\\
+\textbf{49}     & \textbf{\num{2.769e-03}}  & \textbf{\num{4.328e-02}}           & \textbf{\num{3.699e-04}}  & \textbf{\num{8.697e-05}}\\
+\textbf{50}     & \textbf{\num{4.774e-03}}  & \num{6.916e-02}  & \textbf{\num{4.450e-04}}  & \textbf{\num{1.184e-04}}\\
+\textbf{51}     & \textbf{\num{6.778e-03}}  & \num{8.386e-02}  & \textbf{\num{4.369e-04}}  & \textbf{\num{8.828e-05}}\\
+\textbf{52}     & \textbf{\num{6.720e-03}}  & \num{7.033e-02}  & \textbf{\num{4.704e-04}}  & \textbf{\num{6.853e-05}}\\
+\textbf{53}     & \textbf{\num{6.820e-03}}  & \num{7.539e-02}  & \textbf{\num{5.651e-04}}  & \textbf{\num{7.291e-05}}\\
+\textbf{54}     & \textbf{\num{8.535e-03}}  & \num{8.820e-02}  & \textbf{\num{7.703e-04}}  & \textbf{\num{1.186e-04}}\\
+\textbf{55}     & \textbf{\num{1.119e-02}}           & \num{8.010e-02}  & \textbf{\num{1.129e-03}}  & \textbf{\num{1.156e-04}}\\
+
+time lag & very_positive_reply & very_positive_topic & positive_reply & positive_topic\\
+\textbf{01} & \num{3.817e-01} & \num{8.018e-01} & \textbf{\num{8.915e-03}} & \textbf{\num{4.852e-02}}\\
+\textbf{02} & \num{4.416e-01} & \num{6.042e-01} & \textbf{\num{3.122e-02}} & \textbf{\num{4.322e-02}}\\
+\textbf{03} & \textbf{\num{2.201e-03}} & \textbf{\num{1.825e-03}} & \textbf{\num{9.802e-06}} & \textbf{\num{2.131e-04}}\\
+\textbf{04} & \textbf{\num{1.226e-03}} & \textbf{\num{2.106e-06}} & \textbf{\num{3.430e-06}} & \textbf{\num{9.414e-05}}\\
+\textbf{05} & \textbf{\num{2.686e-03}} & \textbf{\num{5.947e-06}} & \textbf{\num{1.606e-05}} & \textbf{\num{3.686e-04}}\\
+\textbf{06} & \textbf{\num{3.383e-02}} & \textbf{\num{9.171e-05}} & \textbf{\num{3.809e-04}} & \textbf{\num{9.993e-04}}\\
+\textbf{07} & \textbf{\num{4.270e-02}} & \textbf{\num{4.402e-05}} & \textbf{\num{1.591e-03}} & \textbf{\num{6.009e-03}}\\
+\textbf{08} & \textbf{\num{3.302e-02}} & \textbf{\num{1.856e-04}} & \textbf{\num{1.943e-03}} & \textbf{\num{2.335e-03}}\\
+\textbf{09} & \textbf{\num{5.271e-02}} & \textbf{\num{3.184e-04}} & \textbf{\num{3.403e-03}} & \textbf{\num{4.586e-03}}\\
+\textbf{10} & \textbf{\num{4.220e-02}} & \textbf{\num{5.928e-04}} & \textbf{\num{3.254e-03}} & \textbf{\num{8.641e-03}}\\
+\textbf{11} & \textbf{\num{1.529e-02}} & \textbf{\num{8.031e-04}} & \textbf{\num{2.338e-03}} & \textbf{\num{1.405e-02}}\\
+\textbf{12} & \textbf{\num{1.933e-02}} & \textbf{\num{5.407e-04}} & \textbf{\num{4.477e-03}} & \textbf{\num{2.374e-02}}\\
+\textbf{13} & \textbf{\num{1.055e-02}} & \textbf{\num{2.347e-04}} & \textbf{\num{6.542e-03}} & \textbf{\num{2.128e-02}}\\
+\textbf{14} & \textbf{\num{9.320e-03}} & \textbf{\num{1.925e-04}} & \textbf{\num{4.418e-03}} & \textbf{\num{2.341e-02}}\\
+\textbf{15} & \textbf{\num{1.383e-02}} & \textbf{\num{1.941e-04}} & \textbf{\num{7.203e-03}} & \textbf{\num{9.987e-03}}\\
+\textbf{16} & \textbf{\num{2.627e-02}} & \textbf{\num{5.833e-04}} & \textbf{\num{5.367e-03}} & \textbf{\num{2.739e-02}}\\
+\textbf{17} & \textbf{\num{2.951e-02}} & \textbf{\num{6.508e-04}} & \textbf{\num{4.511e-03}} & \textbf{\num{1.912e-02}}\\
+\textbf{18} & \num{1.335e-01} & \textbf{\num{2.312e-03}} & \textbf{\num{1.873e-02}} & \textbf{\num{4.552e-02}}\\
+\textbf{19} & \textbf{\num{3.825e-02}} & \textbf{\num{2.505e-03}} & \textbf{\num{6.789e-03}} & \textbf{\num{1.263e-02}}\\
+\textbf{20} & \num{6.471e-02} & \textbf{\num{4.853e-04}} & \textbf{\num{8.525e-03}} & \textbf{\num{8.881e-03}}\\
+\textbf{21} & \textbf{\num{1.215e-02}} & \textbf{\num{1.176e-03}} & \textbf{\num{3.492e-03}} & \textbf{\num{1.011e-02}}\\
+\textbf{22} & \textbf{\num{1.330e-02}} & \textbf{\num{2.338e-03}} & \textbf{\num{4.670e-03}} & \textbf{\num{7.170e-03}}\\
+\textbf{23} & \textbf{\num{1.032e-02}} & \textbf{\num{5.865e-03}} & \textbf{\num{2.726e-03}} & \textbf{\num{5.218e-03}}\\
+\textbf{24} & \textbf{\num{4.087e-03}} & \textbf{\num{5.017e-03}} & \textbf{\num{2.412e-03}} & \textbf{\num{7.679e-03}}\\
+\textbf{25} & \textbf{\num{3.997e-03}} & \textbf{\num{5.645e-03}} & \textbf{\num{2.011e-03}} & \textbf{\num{1.429e-02}}\\
+\textbf{26} & \textbf{\num{2.729e-03}} & \textbf{\num{2.043e-03}} & \textbf{\num{6.260e-04}} & \textbf{\num{2.278e-02}}\\
+\textbf{27} & \textbf{\num{2.192e-03}} & \textbf{\num{4.671e-03}} & \textbf{\num{5.067e-04}} & \textbf{\num{2.833e-02}}\\
+\textbf{28} & \textbf{\num{3.314e-03}} & \textbf{\num{9.389e-03}} & \textbf{\num{1.017e-03}} & \textbf{\num{1.849e-02}}\\
+\textbf{29} & \textbf{\num{3.765e-03}} & \textbf{\num{1.536e-02}} & \textbf{\num{1.215e-03}} & \textbf{\num{2.084e-02}}\\
+\textbf{30} & \textbf{\num{4.713e-03}} & \textbf{\num{3.499e-02}} & \textbf{\num{3.507e-03}} & \textbf{\num{1.840e-02}}\\
+\textbf{31} & \textbf{\num{8.304e-03}} & \textbf{\num{2.920e-02}} & \textbf{\num{5.000e-03}} & \textbf{\num{1.067e-02}}\\
+\textbf{32} & \textbf{\num{6.487e-03}} & \textbf{\num{2.494e-02}} & \textbf{\num{5.528e-03}} & \textbf{\num{8.491e-03}}\\
+\textbf{33} & \textbf{\num{6.057e-03}} & \textbf{\num{2.265e-02}} & \textbf{\num{1.154e-03}} & \textbf{\num{8.667e-03}}\\
+\textbf{34} & \textbf{\num{6.678e-03}} & \textbf{\num{2.063e-02}} & \textbf{\num{2.832e-04}} & \textbf{\num{6.066e-03}}\\
+\textbf{35} & \textbf{\num{4.514e-03}} & \textbf{\num{1.961e-03}} & \textbf{\num{3.837e-05}} & \textbf{\num{1.710e-03}}\\
+\textbf{36} & \textbf{\num{4.287e-03}} & \textbf{\num{1.821e-03}} & \textbf{\num{4.219e-05}} & \textbf{\num{1.094e-03}}\\
+\textbf{37} & \textbf{\num{4.934e-03}} & \textbf{\num{8.910e-04}} & \textbf{\num{3.028e-05}} & \textbf{\num{2.006e-03}}\\
+\textbf{38} & \textbf{\num{5.685e-03}} & \textbf{\num{2.065e-04}} & \textbf{\num{1.898e-05}} & \textbf{\num{3.539e-03}}\\
+\textbf{39} & \textbf{\num{5.981e-03}} & \textbf{\num{2.504e-04}} & \textbf{\num{2.628e-05}} & \textbf{\num{3.067e-03}}\\
+\textbf{40} & \textbf{\num{7.253e-03}} & \textbf{\num{2.407e-04}} & \textbf{\num{2.240e-05}} & \textbf{\num{1.747e-03}}\\
+\textbf{41} & \textbf{\num{9.170e-03}} & \textbf{\num{3.842e-04}} & \textbf{\num{2.470e-05}} & \textbf{\num{2.390e-03}}\\
+\textbf{42} & \textbf{\num{1.763e-02}} & \textbf{\num{1.700e-03}} & \textbf{\num{1.216e-04}} & \textbf{\num{2.343e-03}}\\
+\textbf{43} & \textbf{\num{9.302e-03}} & \textbf{\num{1.931e-03}} & \textbf{\num{1.129e-05}} & \textbf{\num{2.256e-03}}\\
+\textbf{44} & \textbf{\num{1.209e-02}} & \textbf{\num{1.741e-03}} & \textbf{\num{1.963e-05}} & \textbf{\num{1.613e-03}}\\
+\textbf{45} & \textbf{\num{1.331e-02}} & \textbf{\num{2.783e-03}} & \textbf{\num{2.225e-05}} & \textbf{\num{2.119e-03}}\\
+\textbf{46} & \textbf{\num{1.359e-02}} & \textbf{\num{1.901e-03}} & \textbf{\num{1.361e-05}} & \textbf{\num{4.505e-03}}\\
+\textbf{47} & \textbf{\num{1.801e-02}} & \textbf{\num{1.032e-03}} & \textbf{\num{9.177e-06}} & \textbf{\num{6.361e-03}}\\
+\textbf{48} & \textbf{\num{1.864e-02}} & \textbf{\num{1.387e-03}} & \textbf{\num{1.467e-05}} & \textbf{\num{6.698e-03}}\\
+\textbf{49} & \textbf{\num{2.359e-02}} & \textbf{\num{3.557e-03}} & \textbf{\num{4.811e-05}} & \textbf{\num{4.822e-03}}\\
+\textbf{50} & \textbf{\num{1.678e-02}} & \textbf{\num{1.619e-03}} & \textbf{\num{5.566e-05}} & \textbf{\num{6.165e-03}}\\
+\textbf{51} & \textbf{\num{1.340e-02}} & \textbf{\num{6.326e-04}} & \textbf{\num{4.700e-05}} & \textbf{\num{4.689e-03}}\\
+\textbf{52} & \textbf{\num{1.052e-02}} & \textbf{\num{5.874e-04}} & \textbf{\num{8.753e-05}} & \textbf{\num{4.489e-03}}\\
+\textbf{53} & \textbf{\num{9.684e-03}} & \textbf{\num{5.220e-04}} & \textbf{\num{1.124e-04}} & \textbf{\num{2.240e-03}}\\
+\textbf{54} & \textbf{\num{1.209e-02}} & \textbf{\num{8.020e-04}} & \textbf{\num{1.390e-04}} & \textbf{\num{3.245e-03}}\\
+\textbf{55} & \textbf{\num{1.765e-02}} & \textbf{\num{1.019e-03}} & \textbf{\num{1.901e-04}} & \textbf{\num{4.997e-03}}\\

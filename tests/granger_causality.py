@@ -6,23 +6,24 @@ from statsmodels.tsa.stattools import grangercausalitytests
 from statsmodels.tsa.stattools import coint
 
 from .util import context
-from .util import retriever
 
+from forecaster import retriever
 from forecaster import timeseries
 
 df = retriever.get_data('bitcoin')
-price_header = 'price'
+
+binary_headers = ['price', 'transactions']
+target_header = 'today_price'
 
 for header in df.columns.values:
-    if header == 'date':
-        continue
-    df[header] = timeseries.first_differentiate(df[header])
+    if header not in binary_headers:
+        df[header] = timeseries.first_differentiate(df[header])
 
 # Drop nan values
 restricted_df = df.dropna()
 
 for header in restricted_df.columns.values:
-    if header == 'date' or header == price_header:
+    if header in binary_headers or header == target_header:
         continue
 
     # # Metrics and plots
@@ -33,8 +34,8 @@ for header in restricted_df.columns.values:
     # timeseries.plot(restricted_df['date'], restricted_df[header], '', '')
 
     # Standalone Granger causality
-    stack = np.column_stack((restricted_df[price_header], restricted_df[header]))
-    res = grangercausalitytests(stack, 13, verbose=False)
+    stack = np.column_stack((restricted_df[target_header], restricted_df[header]))
+    res = grangercausalitytests(stack, 55, verbose=False)
 
     print('\n\n', header)
     for k in res.keys():
