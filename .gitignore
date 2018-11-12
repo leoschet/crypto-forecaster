@@ -109,7 +109,9 @@ venv.bak/
 
 # resources
 res/**/*.csv
+res/**/*.CSV
 res/**/*.json
 res/**/*.zip
+res/**/*.ZIP
 res/**/*.png
 *.zip
