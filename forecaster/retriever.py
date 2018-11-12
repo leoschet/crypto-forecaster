@@ -39,14 +39,27 @@ def get_data(cryptocurrency):
     reply_df = _fold_categorical_vader(reply_df, 'reply', by='date')
     topic_df = _fold_categorical_vader(topic_df, 'topic', by='date', agg={'views':'sum'})
 
-    # Calculate 
+    # Calculate daily sentiment
     reply_df = _sum_categorical_vader(reply_df, 'reply')
     topic_df = _sum_categorical_vader(topic_df, 'topic')  
+
+    # Set date as index for forum related dfs
+    reply_df['date'] = pd.to_datetime(reply_df['date'])
+    reply_df.index = pd.DatetimeIndex(reply_df['date'])
+    reply_df = reply_df.drop(columns='date')
+
+    topic_df['date'] = pd.to_datetime(topic_df['date'])
+    topic_df.index = pd.DatetimeIndex(topic_df['date'])
+    topic_df = topic_df.drop(columns='date')
+
+    # Set 1 calendar day frequency, where missing data i completed with 0
+    reply_df = reply_df.asfreq(freq='1D').fillna(0)
+    topic_df = topic_df.asfreq(freq='1D').fillna(0)
 
     # Merge data frames
     dfs = [reply_df, topic_df]
     forum_related = _merge_frames(dfs, on='date')
-    forum_related['date'] = pd.to_datetime(forum_related['date'])
+    # forum_related['date'] = pd.to_datetime(forum_related['date'])
 
     # Merge data frames
     dfs = [price_df, transactions_df, forum_related]
@@ -94,7 +107,9 @@ def _floaterize_prices(price_df):
 def _categorize_labels(df):
     labels = ['price', 'transactions']
 
-    df[labels] = df[labels].diff().apply(np.sign).astype(str).shift(-1)
+    df[labels] = df[labels].diff().apply(np.sign)
+    df[labels] = df[labels].replace(0, -1).astype(str).shift(-1)
+
     df = df.dropna()
 
     return df

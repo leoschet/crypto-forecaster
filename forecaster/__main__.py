@@ -20,24 +20,22 @@ from .gcForest import GCForest
 # TODO: Create config json
 #       - Use data header only
 cryptocurrencies = ['bitcoin']
-estimations = ['count']#, 'paper'
+estimations = ['paper']#, 'count'
 data_headers = {
     'bitcoin': {
-        # 'price': ['positive_topic', 'total_topic', 'positive_reply', 'very_positive_topic'],
+        # 'price': ['positive_topic', 'positive_reply', 'very_positive_topic', 'very_positive_reply'],
         'price': ['positive_topic', 'total_topic', 'positive_reply', 'total_reply'],
-        # 'price': ['positive_topic', 'total_topic', 'positive_reply', 'very_positive_topic', 'total_reply'],
-        # 'price': ['today_price'],
         'transactions': ['total_topic', 'very_positive_topic', 'very_positive_reply'],
     }
 }
-label_headers = ['price', 'transactions']
+label_headers = ['price'] #, 'transactions'
 
 ## Classifiers
 aode = classifiers.AODE()
 svclassifier = SVC(C=0.5, kernel='rbf', degree=8, gamma=0.01, probability=True)
 mlp = MLPClassifier(learning_rate='adaptive', learning_rate_init=0.001)
 rfc = RandomForestClassifier(
-    n_estimators=800, criterion='gini', max_depth=30, random_state=0,
+    n_estimators=500, criterion='gini', max_depth=30, random_state=0,
     n_jobs=-1, min_samples_leaf=1
 )
 
@@ -75,26 +73,21 @@ for cryptocurrency in cryptocurrencies:
     df = retriever.get_data(cryptocurrency)
 
     # Get all headers but label headers
-    features_headers = list(set(df.columns.values).symmetric_difference(label_headers))
+    features_headers = list(
+        set(df.columns.values).symmetric_difference(
+            label_headers + ['transactions']
+        )
+    )
 
     # Standardize features series
     df[features_headers] = df[features_headers].apply(stats.zscore)
-    # df = df.apply(stats.zscore) # Useful for regressor?
-    # df = df.diff() # Useful for regressor?
-
-    # Shift label headers so features can predict future values
-    # df[label_headers] = df[label_headers].diff() # Useful for regressor?
-    df[label_headers] = df[label_headers].shift(-1)
-
-    # Drop rows with nan values
-    df = df.dropna()
 
     for label in label_headers:
         results[cryptocurrency][label] = {}
 
         # Extract features and labels data
-        data = np.array(df[data_headers[cryptocurrency][label]])
-        labels = np.array(df[label])
+        data = np.array(df[data_headers[cryptocurrency][label]])[1250:]
+        labels = np.array(df[label])[1250:]
 
         # Print some status
         data_len = len(data)
@@ -124,9 +117,11 @@ for cryptocurrency in cryptocurrencies:
                 # assert both have same len
                 assert len(features_windows) == len(lagged_labels)
 
+                partition = int(len(features_windows) * 0.75)
+
                 # Divide into train and test
-                train_data, test_data = features_windows[:697], features_windows[697:]
-                train_labels, test_labels = lagged_labels[:697], lagged_labels[697:]
+                train_data, test_data = features_windows[:partition], features_windows[partition:]
+                train_labels, test_labels = lagged_labels[:partition], lagged_labels[partition:]
 
                 ## GC FOREST
                 # Modify data for gcforest
