@@ -7,7 +7,7 @@ import numpy as np
 from . import settings
 
 
-def get_data(cryptocurrency):
+def get_data(cryptocurrency, fillna=0):
     crypto_path = os.path.join(settings.RESOURCES_DIR, cryptocurrency)
 
     # Currency related data frames
@@ -53,8 +53,8 @@ def get_data(cryptocurrency):
     topic_df = topic_df.drop(columns='date')
 
     # Set 1 calendar day frequency, where missing data i completed with 0
-    reply_df = reply_df.asfreq(freq='1D').fillna(0)
-    topic_df = topic_df.asfreq(freq='1D').fillna(0)
+    # reply_df = reply_df.asfreq(freq='1D').fillna(fillna)
+    # topic_df = topic_df.asfreq(freq='1D').fillna(fillna)
 
     # Merge data frames
     dfs = [reply_df, topic_df]
