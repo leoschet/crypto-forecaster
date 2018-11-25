@@ -20,18 +20,18 @@ for header in df.columns.values:
         df[header] = timeseries.first_differentiate(df[header])
 
 # Drop nan values
-restricted_df = df.dropna()
+restricted_df = df.iloc[333:].dropna()
 
 for header in restricted_df.columns.values:
     if header in binary_headers or header == target_header:
         continue
 
     # # Metrics and plots
-    # timeseries.metrics(restricted_df[price_header])
-    # timeseries.plot(restricted_df['date'], restricted_df[price_header], '', '')
+    # timeseries.metrics(restricted_df[target_header])
+    # timeseries.plot(restricted_df.index, restricted_df[target_header], '', '')
 
     # timeseries.metrics(restricted_df[header])
-    # timeseries.plot(restricted_df['date'], restricted_df[header], '', '')
+    # timeseries.plot(restricted_df.index, restricted_df[header], '', '')
 
     # Standalone Granger causality
     stack = np.column_stack((restricted_df[target_header], restricted_df[header]))
