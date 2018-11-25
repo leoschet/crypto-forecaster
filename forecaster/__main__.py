@@ -1,30 +1,27 @@
 import codecs
+import json
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from scipy import stats
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (accuracy_score, classification_report,
                              precision_recall_fscore_support)
-from scipy import stats
-from sklearn.model_selection import KFold
-from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier
-from sklearn.ensemble import RandomForestClassifier
-
-from sklearn.svm import SVR
-import matplotlib.pyplot as plt
+from sklearn.svm import SVC, SVR
 
 from . import classifiers, retriever, timeseries
-from .gcForest import config
-from .gcForest import GCForest
+from .gcForest import GCForest, config
 
 # TODO: Create config json
 #       - Use data header only
 cryptocurrencies = ['bitcoin']
-estimations = ['paper']#, 'count'
+estimations = ['paper']# , 'count'
 data_headers = {
     'bitcoin': {
-        # 'price': ['positive_topic', 'positive_reply', 'very_positive_topic', 'very_positive_reply'],
-        'price': ['positive_topic', 'total_topic', 'positive_reply', 'total_reply'],
+        'price': ['positive_topic', 'positive_reply', 'very_positive_topic', 'very_positive_reply', 'total_topic', 'total_reply', 'negative_reply'],
+        # 'price': ['positive_topic', 'total_topic', 'positive_reply', 'total_reply'],
         'transactions': ['total_topic', 'very_positive_topic', 'very_positive_reply'],
     }
 }
@@ -32,10 +29,12 @@ label_headers = ['price'] #, 'transactions'
 
 ## Classifiers
 aode = classifiers.AODE()
-svclassifier = SVC(C=0.5, kernel='rbf', degree=8, gamma=0.01, probability=True)
-mlp = MLPClassifier(learning_rate='adaptive', learning_rate_init=0.001)
+# svclassifier = SVC(C=10000, kernel='rbf', degree=8, gamma=0.0001, probability=True)
+svclassifier = SVC(C=100000, kernel='rbf', degree=3, gamma=0.00001, probability=True)
+# svclassifier = SVC(C=1000, kernel='rbf', degree=3, gamma=0.0001, probability=True)
+mlp = MLPClassifier(learning_rate_init=0.001, max_iter=4000) # hidden_layer_sizes=(60, 100, 40), learning_rate='adaptive',
 rfc = RandomForestClassifier(
-    n_estimators=500, criterion='gini', max_depth=30, random_state=0,
+    n_estimators=150, criterion='gini', max_depth=30,
     n_jobs=-1, min_samples_leaf=1
 )
 
@@ -45,8 +44,6 @@ gc_config = config.load_config()
 ## Regressors
 # Lower gamma helps higher lags
 svregressor = SVR(C=100, kernel='rbf', degree=8, gamma=0.001)
-
-kf = KFold(n_splits=10, shuffle=True) # 90% for training, 10% for testing
 
 def plot(timeseries, prediction):
     fig = plt.figure(figsize=(15, 6))
@@ -62,11 +59,10 @@ def plot(timeseries, prediction):
 
 results = {}
 for cryptocurrency in cryptocurrencies:
+    # Print some info
     print('\nTesting for ' + cryptocurrency + ' data set')
 
-    file_name = 'res/forecasting_results/' + cryptocurrency + '.txt'
-    file_ = codecs.open(file_name, 'w+', 'utf-8')
-
+    # Edit results dict
     results[cryptocurrency] = {}
 
     # Collect data
@@ -83,6 +79,7 @@ for cryptocurrency in cryptocurrencies:
     df[features_headers] = df[features_headers].apply(stats.zscore)
 
     for label in label_headers:
+        # Edit results dict
         results[cryptocurrency][label] = {}
 
         # Extract features and labels data
@@ -96,127 +93,129 @@ for cryptocurrency in cryptocurrencies:
         print('\tTotal of features per data: ' + str(features_amount))
 
         for estimation in estimations:
+            # Print some info
             print('\tEstimating probabilities on \'' + estimation + '\' mode')
 
-            file_.write(
-                'Results for \'' + label + '\' ' + cryptocurrency +
-                ' estimating probabilities on \'' + estimation + '\' mode:\n'
-            )
-
+            # Edit results dict
             results[cryptocurrency][label][estimation] = {}
 
-            for lag in range(1, 51):
+            for lag in range(19, 51):
+                # Edit results dict
+                results[cryptocurrency][label][estimation][lag] = {}
+
+                # Print some info
                 print('\n\n\t\tPredicting with lag =', str(lag))
-                
-                # Get rolling windows of data
-                features_windows = timeseries.window_stack(data, window=lag, spatial=False)
 
-                # Cut off unused labels, a.k.a.: before lag labels
-                lagged_labels = labels[(lag - 1):]
+                # Execute 30 times for each lag
+                for execution in range(15):
+                    # Print some info
+                    print('\t\t\tExecution =', str(execution))
 
-                # assert both have same len
-                assert len(features_windows) == len(lagged_labels)
+                    # Get rolling windows of data
+                    features_windows = timeseries.window_stack(data, window=lag, spatial=True)
 
-                partition = int(len(features_windows) * 0.75)
+                    # Cut off unused labels, a.k.a.: before lag labels
+                    lagged_labels = labels[(lag - 1):]
 
-                # Divide into train and test
-                train_data, test_data = features_windows[:partition], features_windows[partition:]
-                train_labels, test_labels = lagged_labels[:partition], lagged_labels[partition:]
+                    # assert both have same len
+                    assert len(features_windows) == len(lagged_labels)
 
-                ## GC FOREST
-                # Modify data for gcforest
-                # train_data = train_data[:, np.newaxis, :, :]
-                # test_data = test_data[:, np.newaxis, :, :]
+                    # Train/test partition point
+                    partition = int(len(features_windows) * 0.75)
 
-                # # Modify labels for gcforest
-                # lagged_labels = [int(float(l)) for l in lagged_labels]
-                # test_labels = [int(float(l)) for l in test_labels]
+                    # Divide into train and test
+                    train_data, test_data = features_windows[:partition], features_windows[partition:]
+                    train_labels, test_labels = lagged_labels[:partition], lagged_labels[partition:]
 
-                # lagged_labels = [0 if l == -1 else l for l in lagged_labels]
-                # test_labels = [0 if l == -1 else l for l in test_labels]
+                    ## GC FOREST
+                    # Modify data for gcforest
+                    train_data = train_data[:, np.newaxis, :, :]
+                    test_data = test_data[:, np.newaxis, :, :]
 
-                # # Set finegraining args for gcforest
-                # series_amount = len(data_headers[cryptocurrency][label])
-                # if lag > 31:
-                #     small_win = int(lag/16)
-                #     medium_win = int(lag/8)
-                #     large_win = int(lag/4)
-                #     stride = 2
-                # elif lag > 15:
-                #     small_win = int(lag/8)
-                #     medium_win = int(lag/4)
-                #     large_win = int(lag/2)
-                #     stride = 2
-                # elif lag > 7:
-                #     small_win = int(lag/6)
-                #     medium_win = int(lag/3)
-                #     large_win = int(lag/2)
-                #     stride = 1
-                # else:
-                #     small_win = 2
-                #     medium_win = 3
-                #     large_win = 4
-                #     stride = 1
+                    # Modify labels for gcforest
+                    lagged_labels = [int(float(l)) for l in lagged_labels]
+                    test_labels = [int(float(l)) for l in test_labels]
 
-                # gc_config = config.set_finegraining_args(
-                #     gc_config, series_amount, small_win, medium_win, large_win, stride
-                # )
+                    lagged_labels = [0 if l == -1 else l for l in lagged_labels]
+                    test_labels = [0 if l == -1 else l for l in test_labels]
 
-                # # Create gcforest classifier
-                # gc = GCForest(gc_config)
+                    # Set finegraining args for gcforest
+                    series_amount = len(data_headers[cryptocurrency][label])
+                    if lag > 31:
+                        small_win = int(lag/16)
+                        medium_win = int(lag/8)
+                        large_win = int(lag/4)
+                        stride = 2
+                    elif lag > 15:
+                        small_win = int(lag/8)
+                        medium_win = int(lag/4)
+                        large_win = int(lag/2)
+                        stride = 2
+                    elif lag > 7:
+                        small_win = int(lag/6)
+                        medium_win = int(lag/3)
+                        large_win = int(lag/2)
+                        stride = 1
+                    else:
+                        small_win = 2
+                        medium_win = 3
+                        large_win = 4
+                        stride = 1
 
-                # fit the classifier
-                # aode.fit(train_data, train_labels, online=False)
-                # svclassifier.fit(train_data, train_labels)
-                # mlp.fit(train_data, train_labels)
-                rfc.fit(train_data, train_labels)
-                # svregressor.fit(train_data, train_labels)
-                # gc.fit_transform(train_data, train_labels)
+                    gc_config = config.set_finegraining_args(
+                        gc_config, series_amount, small_win, medium_win, large_win, stride
+                    )
 
-                # predict
-                pred_labels = []
-                # for element in test_data:
-                #     pred_labels.append(aode.predict(element, estimation=estimation))
-                # pred_labels = svclassifier.predict(test_data)
-                # pred_labels = mlp.predict(test_data)
-                pred_labels = rfc.predict(test_data)
-                # pred_labels = svregressor.predict(test_data)
-                # pred_labels = gc.predict(test_data)
+                    # Create gcforest classifier
+                    gc = GCForest(gc_config)
 
-                # Regressor execution:
-                # plot(list(test_labels), list(pred_labels))
-                # continue
+                    # fit the classifier
+                    # aode.fit(train_data, train_labels, online=False)
+                    # svclassifier.fit(train_data, train_labels)
+                    # mlp.fit(train_data, train_labels)
+                    # rfc.fit(train_data, train_labels)
+                    # svregressor.fit(train_data, train_labels)
+                    gc.fit_transform(train_data, train_labels)
 
-                # Calculte prediction metrics
-                precision, recall, f1, _ = precision_recall_fscore_support(
-                    test_labels, pred_labels, average='weighted'
-                )
-                accuracy = accuracy_score(test_labels, pred_labels)
+                    # predict
+                    pred_labels = []
+                    # for element in test_data:
+                    #     pred_labels.append(aode.predict(element, estimation=estimation))
+                    # pred_labels = svclassifier.predict(test_data)
+                    # pred_labels = mlp.predict(test_data)
+                    # pred_labels = rfc.predict(test_data)
+                    # pred_labels = svregressor.predict(test_data)
+                    pred_labels = gc.predict(test_data)
 
-                # TODO: Print confusion matrix
-                print(
-                    '\t\t\t',
-                    classification_report(test_labels, pred_labels).replace('\n', '\n\t\t\t')
-                )
-                print('\t\t\tAccuracy:', accuracy)
+                    # Regressor execution:
+                    # plot(list(test_labels), list(pred_labels))
+                    # continue
 
-                #####
+                    # Calculte prediction metrics
+                    precision, recall, f1, _ = precision_recall_fscore_support(
+                        test_labels, pred_labels, average='weighted'
+                    )
+                    accuracy = accuracy_score(test_labels, pred_labels)
 
-                results[cryptocurrency][label][estimation]['precision'] = precision
-                results[cryptocurrency][label][estimation]['recall'] = recall
-                results[cryptocurrency][label][estimation]['f1'] = f1
-                results[cryptocurrency][label][estimation]['accuracy'] = accuracy
+                    if 'precision' not in results[cryptocurrency][label][estimation][lag]:
+                        results[cryptocurrency][label][estimation][lag]['precision'] = []
+                        results[cryptocurrency][label][estimation][lag]['recall'] = []
+                        results[cryptocurrency][label][estimation][lag]['f1'] = []
+                        results[cryptocurrency][label][estimation][lag]['accuracy'] = []
+                        results[cryptocurrency][label][estimation][lag]['test_labels'] = [
+                            str(label) for label in test_labels
+                        ]
+                        results[cryptocurrency][label][estimation][lag]['pred_labels'] = []
 
-                file_.write('\tLag = ' + str(lag))
+                    results[cryptocurrency][label][estimation][lag]['precision'].append(precision)
+                    results[cryptocurrency][label][estimation][lag]['recall'].append(recall)
+                    results[cryptocurrency][label][estimation][lag]['f1'].append(f1)
+                    results[cryptocurrency][label][estimation][lag]['accuracy'].append(accuracy)
+                    results[cryptocurrency][label][estimation][lag]['pred_labels'].append(
+                        [str(pred) for pred in pred_labels]
+                    )
 
-                file_.write('\n\t\tPrecisions: ' + str(precision))
-                file_.write('\n\t\t\tMean: ' + str(np.mean(precision)))
-
-                file_.write('\n\t\tRecalls: ' + str(recall))
-                file_.write('\n\t\t\tMean: ' + str(np.mean(recall)))
-
-                file_.write('\n\t\tF1s: ' + str(f1))
-                file_.write('\n\t\t\tMean: ' + str(np.mean(f1)))
-
-                file_.write('\n\t\tAccuracies: ' + str(accuracy))
-                file_.write('\n\t\t\tMean: ' + str(np.mean(accuracy)) + '\n\n')
+                # Overwrite the file every lag
+                file_name = 'res/forecasting_results/' + cryptocurrency + '.txt'
+                file_ = codecs.open(file_name, 'w+', 'utf-8')
+                file_.write(json.dumps(results, indent=4))
